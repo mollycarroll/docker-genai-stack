@@ -1,4 +1,4 @@
-class BaseLogger:
+class BaseLogger:  # maybe adapt for/use this in langfuse
     def __init__(self) -> None:
         self.info = print
 
@@ -26,6 +26,8 @@ def extract_title_and_question(input_string):
     return title, question
 
 
+# QUESTION: what vector index is used here using SQL?
+# need to find definition of "driver"
 def create_vector_index(driver) -> None:
     index_query = "CREATE VECTOR INDEX stackoverflow IF NOT EXISTS FOR (m:Question) ON m.embedding"
     try:
